@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
+    // Commit 2
     public void start(Stage stage) {
         var javaVersion = SystemInfo.javaVersion();
         var javafxVersion = SystemInfo.javafxVersion();
