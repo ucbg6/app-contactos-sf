@@ -4,18 +4,26 @@
  */
 package com.loginsf;
 
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author ucb40
  */
 public class SFProfile {
+    int id;
     String name;
     SFOrg org;
-    String username;
+    String username = "";
     String securityToken;
 
+    public SFProfile(){
+        id = 0;
+        name = "Nuevo";
+    }
     
-    public SFProfile(String name, SFOrg userorg, String user, String token){
+    public SFProfile(int id, String name, SFOrg userorg, String user, String token){
+        this.id = id;
         this.name = name;
         org = userorg;
         username = user;
@@ -25,6 +33,11 @@ public class SFProfile {
     
     public String getLoginURL(){
         return org.getLoginURL() + "&username=" + username + "&password=";
+    }
+    
+    @Override
+    public String toString(){
+        return name;
     }
     
 }
