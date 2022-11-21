@@ -3,8 +3,8 @@ module com.appcontactossf {
     requires javafx.fxml;
     requires java.base;
     exports com.appcontactossf;
-    opens com.loginsf to javafx.fxml;
-    exports com.loginsf to javafx.fxml;
+    exports com.login to javafx.fxml;
+    opens com.login to javafx.fxml;
     requires commons.logging;
     requires commons.codec;
     requires httpcore;
@@ -12,4 +12,6 @@ module com.appcontactossf {
     requires httpmime;
     requires httpcore.nio;
     requires httpasyncclient;
+    requires com.google.gson;
+    requires json;
 }
