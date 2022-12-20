@@ -1,0 +1,136 @@
+.textbox{
+    -fx-border-color: #0171D2;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: white;
+}
+
+.tboxerr{
+    -fx-border-color: #e30008;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color:#ffe6e6;
+    -fx-background-insets: 0;
+}
+
+.btndefault{
+    -fx-background-color: #0171D2;
+    -fx-text-fill: white;
+}
+
+.successbtn{
+    -fx-background-color: #04b03d;
+    -fx-text-fill: white;
+}
+
+.btndefault:hover{
+    -fx-background-color: #0287fa;
+}
+
+.btndefault:pressed{
+    -fx-background-color: white;
+    -fx-text-fill: #0171D2;
+}
+
+.btndelete{
+    -fx-background-color: #e30008;
+    -fx-text-fill: white;
+}
+
+.bordertbox{
+    -fx-border-color: #0171D2;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 0px;
+    -fx-background-color: white;
+    -fx-text-fill: #0171D2;
+}
+
+.sfbtn{
+    -fx-border-color: #0171D2;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 0px;
+    -fx-background-color: white;
+    -fx-text-fill: #0171D2;
+}
+
+.sfbtn:hover{
+    -fx-background-color: #0171D2;
+    -fx-text-fill: white;
+}
+
+.sfbtn:pressed{
+    -fx-background-color: #e3e3e3;
+    -fx-text-fill: #0171D2;
+}
+
+.sfbtndel{
+    -fx-border-color: #e30008;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 0px;
+    -fx-background-color: white;
+    -fx-text-fill: #e30008;
+}
+
+.sfbtndel:hover{
+    -fx-background-color: #e30008;
+    -fx-text-fill: white;
+}
+
+.sfbtndel:pressed{
+    -fx-background-color: white;
+    -fx-text-fill: #e30008;
+}
+
+.check-box .box{
+    -fx-background-color: white;
+    -fx-border-color:#0171D2;
+    -fx-border-radius: 4px;
+}
+
+.check-box{
+    -fx-text-fill: #0171D2;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+    -fx-background-color: #0171D2;
+}
+
+.combo-box-base > .arrow-button{
+    -fx-background-color: white;
+}
+
+.tab-pane .tab:selected{
+    -fx-background-color: #0171D2;
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: white;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: white;    
+    -fx-border-color: transparent;
+    -fx-border-width: 0 1 3 0;
+    -fx-border-insets: 0;
+}
+
+.table-view .column-header:hover {
+    -fx-background-color: whitesmoke;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: #0171D2;
+    -fx-alignment: CENTER;
+}

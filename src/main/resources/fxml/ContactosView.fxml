@@ -4,177 +4,229 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="480.0" prefWidth="854.0" type="BorderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" style="-fx-background-color: white;" stylesheets="@styles.css" type="BorderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <SplitPane dividerPositions="0.6" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.6" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <items>
             <VBox>
                <children>
-                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #dbeeff;">
                      <children>
-                        <Button mnemonicParsing="false" text="Nuevo" />
-                        <Button mnemonicParsing="false" text="Actualizar" />
-                        <Button mnemonicParsing="false" text="Guardar" />
-                        <Button mnemonicParsing="false" text="Publicar cambios" />
-                        <Button mnemonicParsing="false" text="Cerrar sesión" />
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #b17cf7; -fx-background-radius: 8px;">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/contact_120.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <Label fx:id="name112" text="Lista Contactos" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
                      </children>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets left="5.0" />
                      </padding>
                   </HBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <TableView fx:id="contactView" minWidth="500.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <VBox>
                <children>
-                  <TabPane>
+                  <TabPane minWidth="300.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
                      <tabs>
                         <Tab closable="false" text="Contacto">
                            <content>
-                              <VBox>
+                              <VBox alignment="CENTER" style="-fx-background-color: white; -fx-border-color: #0171D2; -fx-border-width: 2 0 0 0;">
                                  <children>
-                                    <GridPane minHeight="50.0">
+                                    <GridPane fx:id="contactBox" minHeight="110.0">
                                        <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="188.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="188.0" />
                                        </columnConstraints>
                                        <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Hyperlink text="Id: " />
-                                          <HBox alignment="CENTER_RIGHT" prefWidth="191.0" spacing="5.0" GridPane.columnIndex="1">
-                                             <children>
-                                                <Button alignment="CENTER_RIGHT" minWidth="40.0" mnemonicParsing="false" text="Editar" />
-                                                <Button mnemonicParsing="false" text="Cancelar" />
-                                                <Button minWidth="40.0" mnemonicParsing="false" text="Eliminar" />
-                                             </children>
+                                          <Hyperlink fx:id="idLink" text="Id: " visible="false" GridPane.rowIndex="1" />
+                                          <HBox alignment="CENTER_RIGHT" prefWidth="191.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                           </HBox>
-                                          <Label text="Creado:   Publicado:" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </GridPane>
-                                    <ScrollPane pannable="true" prefHeight="559.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
-                                       <content>
-                                          <VBox fillWidth="false" spacing="5.0">
+                                          <Label fx:id="noSelect" text="Seleccione un contacto de la lista o cree uno nuevo" textFill="#868686" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                          <VBox fx:id="contactCard" style="-fx-background-color: #0171D2;" visible="false" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                                              <children>
-                                                <HBox spacing="10.0">
+                                                <VBox>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
                                                    <children>
-                                                      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <Label text="Label" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font name="System Bold" size="24.0" />
-                                                         </font>
+                                                      <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                         <children>
+                                                            <VBox maxHeight="-Infinity" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #b17cf7; -fx-background-radius: 8px;">
+                                                               <children>
+                                                                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/contact_120.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <Label fx:id="name" text="Contacto" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="24.0" />
+                                                               </font>
+                                                               <padding>
+                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                               </padding>
+                                                            </Label>
+                                                         </children>
                                                          <padding>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                          </padding>
-                                                      </Label>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #0171D2;">
+                                                   <children>
+                                                      <Label fx:id="id" text="Id: " textFill="WHITE" />
                                                    </children>
                                                    <padding>
-                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                      <Insets left="10.0" />
                                                    </padding>
                                                 </HBox>
-                                                <Label>
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                                   <children>
-                                                      <Label text="Cuenta: ">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Hyperlink text="CUENTA">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Hyperlink>
-                                                   </children>
-                                                </HBox>
-                                                <HBox spacing="10.0">
-                                                   <children>
-                                                      <Label prefWidth="100.0" text="Título:">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label prefWidth="200.0" text="Departamento:">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox spacing="10.0">
-                                                   <children>
-                                                      <Label prefWidth="100.0" text="Teléfono:">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label prefWidth="200.0" text="Móvil:">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <Label text="Email:">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label text="Dirección">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label text="Descripción:">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
                                              </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.hgrow="ALWAYS">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
-                                          </VBox>
+                                             <children>
+                                                <Button fx:id="editSave" disable="true" mnemonicParsing="false" styleClass="sfbtn" stylesheets="@styles.css" text="Editar" />
+                                                <Button fx:id="deleteCancel" disable="true" mnemonicParsing="false" styleClass="sfbtndel" stylesheets="@styles.css" text="Eliminar" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="newContact" mnemonicParsing="false" styleClass="sfbtn" text="Nuevo" GridPane.hgrow="ALWAYS">
+                                             <GridPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefWidth="438.0" VBox.vgrow="ALWAYS">
+                                       <content>
+                                          <StackPane fx:id="scroll" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: white;" />
                                        </content>
                                     </ScrollPane>
                                  </children>
                               </VBox>
                            </content>
                         </Tab>
-                        <Tab text="Tabla">
+                        <Tab closable="false" text="Cuentas">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #0171D2; -fx-border-width: 2 0 0 0;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                       <children>
+                                          <VBox maxHeight="-Infinity" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #7F8DE1; -fx-background-radius: 8px;">
+                                             <children>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../images/account_120.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </VBox>
+                                          <Label fx:id="name111" text="Cuentas" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <ListView fx:id="accountList" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab closable="false" text="Tabla">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <HBox style="-fx-border-color: #0171D2; -fx-border-width: 2 0 0 0;">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Campos disponibles" />
+                                          <ListView fx:id="listaValidos" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                       <children>
+                                          <Button fx:id="showField" disable="true" mnemonicParsing="false" styleClass="sfbtn" text="→" textOverrun="CLIP" />
+                                          <Button fx:id="hideField" disable="true" mnemonicParsing="false" styleClass="sfbtn" text="←" textOverrun="CLIP" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox>
+                                       <children>
+                                          <Label text="Campos visibles" />
+                                          <ListView fx:id="listaVisibles" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                       <children>
+                                          <Button fx:id="fieldUp" disable="true" mnemonicParsing="false" styleClass="sfbtn" text="↑" textOverrun="CLIP">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="fieldDown" disable="true" mnemonicParsing="false" styleClass="sfbtn" text="↓" textOverrun="CLIP" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
                           </content>
                         </Tab>
                      </tabs>
@@ -187,41 +239,59 @@
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <MenuBar>
-               <menus>
-                  <Menu mnemonicParsing="false" text="File">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Edit">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Help">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-            <Label text="Online Status">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Label>
+            <GridPane style="-fx-border-width: 0 0 2 0; -fx-border-color: #0171D2;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                     <children>
+                        <Label fx:id="onlineStatus" text="Online Status">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnIndex="1">
+                     <children>
+                        <Button fx:id="refresh" mnemonicParsing="false" styleClass="sfbtn" text="Actualizar">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="logout" mnemonicParsing="false" styleClass="sfbtndel" text="Cerrar sesión">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </GridPane>
          </children>
       </VBox>
    </top>
    <bottom>
-      <Label text="Label" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
-         </padding>
-      </Label>
+      <HBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-border-color: #0171D2; -fx-border-width: 2 0 0 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="status" text="Info">
+               <padding>
+                  <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
+               </padding>
+            </Label>
+            <ProgressBar fx:id="progress" prefWidth="200.0" progress="0.0" />
+         </children>
+      </HBox>
    </bottom>
 </fx:root>

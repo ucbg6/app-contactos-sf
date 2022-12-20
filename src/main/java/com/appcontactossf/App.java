@@ -1,21 +1,14 @@
 package com.appcontactossf;
 
-import com.login.SFLoginDialog;
-import com.login.SFLogin;
 import com.login.SFOrg;
 import com.login.SFUser;
-import java.io.IOException;
-import java.net.URL;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 
 /**
@@ -50,15 +43,18 @@ public class App extends Application {
         });
         
         stage.show();
-        
-        SFOrg defOrg = new SFOrg(0,"Developer Default","https://login.salesforce.com",
+        /* 
+        SFOrg defOrg = new SFOrg("Developer Default","https://login.salesforce.com",
             "3MVG9SOw8KERNN0.CJVU2QegHFFCu15a5CrqMyPE3vIDJGLtC73pnKn70GlpnV.3E4JmnPVqzBY17e9pQ72RY",
             "FB45F66BE5B16B26B647C02B49763A111BFBD42ED7D3FF5B5EAE0C70CE90A278");
         
-        SFUser defUser = new SFUser(0,defOrg,"urielc@ieslmucb.com","P1Z5hsu5rpCC7vCrPtXjl5kB");
-        
+        SFUser defUser = new SFUser();
+        defUser.setUsername("urielc@ieslmucb.com");
+        defUser.setToken("P1Z5hsu5rpCC7vCrPtXjl5kB");
+       
         defOrg.getUsers().add(defUser);
         root.getOrgs().add(defOrg);
+        */
           
     }
 

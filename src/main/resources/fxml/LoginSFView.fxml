@@ -9,48 +9,36 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefWidth="300.0" type="BorderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefWidth="300.0" stylesheets="@styles.css" type="BorderPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox alignment="CENTER" prefWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefWidth="387.0" spacing="10.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
             <VBox fx:id="loginBox" alignment="CENTER" spacing="5.0">
                <children>
-                  <ComboBox fx:id="pickUser" editable="true" prefWidth="250.0" promptText=" - Seleccionar Usuario -" style="-fx-font-size: 16px;" />
-                  <PasswordField fx:id="pass" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" promptText="Contraseña" style="-fx-font-size: 16px;" />
+                  <ComboBox fx:id="pickUser" prefWidth="250.0" promptText=" - Seleccionar Usuario -" style="-fx-font-size: 16px;" styleClass="bordertbox" />
+                  <PasswordField fx:id="pass" alignment="CENTER" maxWidth="-Infinity" prefWidth="250.0" promptText="Contraseña" style="-fx-font-size: 16px;" styleClass="bordertbox" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <Button fx:id="login" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #0070D2;" text="Iniciar sesión" textFill="WHITE" />
+            <StackPane>
+               <children>
+                  <Button fx:id="login" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="btndefault" text="Iniciar sesión" textFill="WHITE" />
+                  <Button fx:id="logout" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="sfbtn" text="Cerrar sesión" textFill="WHITE" visible="false" />
+               </children>
+            </StackPane>
+            <Button fx:id="exit" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Salir" textFill="#0070d2" />
             <Label fx:id="slabel" text="Status" visible="false">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <GridPane>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="141.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="139.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Button fx:id="offline" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Modo offline" textFill="#0070d2" />
-                  <Button fx:id="exit" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Salir" textFill="#0070d2" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </GridPane>
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -76,7 +64,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER_LEFT" spacing="5.0">
+            <HBox alignment="CENTER" spacing="5.0">
                <children>
                   <ComboBox fx:id="pickOrg" prefHeight="30.0" prefWidth="250.0" promptText=" - Seleccionar Org -" style="-fx-background-color: white;" HBox.hgrow="NEVER">
                      <HBox.margin>

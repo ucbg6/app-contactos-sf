@@ -4,7 +4,10 @@ module com.appcontactossf {
     requires java.base;
     exports com.appcontactossf;
     exports com.login to javafx.fxml;
-    opens com.login to javafx.fxml;
+    opens com.login to javafx.fxml, com.google.gson, unirest.java;
+    opens com.dialog to javafx.fxml;
+    opens com.appcontactossf to javafx.fxml, javafx.base;
+    opens com.contact to javafx.base, javafx.fxml;
     requires commons.logging;
     requires commons.codec;
     requires httpcore;
@@ -14,4 +17,5 @@ module com.appcontactossf {
     requires httpasyncclient;
     requires com.google.gson;
     requires json;
+    requires unirest.java;
 }
